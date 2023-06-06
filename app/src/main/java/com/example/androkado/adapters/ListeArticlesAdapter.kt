@@ -11,12 +11,12 @@ class ListeArticlesAdapter(private val dataset: ArrayList<Article>):
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view)
     {
-        //val name: TextView = view.findViewById(R.id.articleName)
-        val textView: TextView
+        //val articleName: TextView = view.findViewById(R.id.articleName)
+        val articleName: TextView
 
         init {
             // Define click listener for the ViewHolder's View
-            textView = view.findViewById(R.id.textView)
+            articleName = view.findViewById(R.id.textView)
         }
 
     }
