@@ -26,10 +26,13 @@ class MainActivity : ComponentActivity() {
         );
 
         setContentView(R.layout.layout_main)
+
+        /*
         findViewById<TextView>(R.id.articleName).text = art.name;
         findViewById<TextView>(R.id.price).text = String.format("%.2f €", art.price)
         findViewById<TextView>(R.id.articleDetail).text = art.description
         findViewById<RatingBar>(R.id.rating).rating = art.rating
+         */
     }
 
     fun clickValidBtn(view: View) {
