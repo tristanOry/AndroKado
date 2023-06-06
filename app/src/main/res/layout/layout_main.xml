@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/articleName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Pain au chocolat"
+        android:textSize="25sp"
+        android:textFontWeight="700"></TextView>
+
+<LinearLayout
+    android:id="@+id/articleInfos"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/articleName"
+    android:orientation="horizontal"
+    android:weightSum="10">
+    <LinearLayout
+        android:id="@+id/articleInfosText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/articleName"
+        android:orientation="vertical"
+        android:layout_weight="9">
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/articleName"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="2dp"
+            android:textAlignment="textStart"
+            android:textSize="12sp"
+            android:text="1.0 €"></TextView>
+        <TextView
+            android:id="@+id/articleDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/price"
+            android:textSize="8sp"
+            android:layout_marginBottom="10dp"
+            android:text="Une viennoiserie au beurre et au chocolat"></TextView>
+    </LinearLayout>
+    <RatingBar
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/articleName"
+        android:layout_alignParentRight="true"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:layout_marginEnd="5dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:numStars="4"
+        android:rating="3.5"></RatingBar>
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:weightSum="2"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/btnValid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/internet_32"
+            android:onClick="clickValidBtn"></ImageButton>
+
+        <ToggleButton
+            android:id="@+id/toggleBuying"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_marginBottom="5dp"
+            android:textOff="À acheter"
+            android:textOn="Acheté"
+            android:onClick="clickBuyBtn"></ToggleButton>
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AndroKado</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_info_url">InfoUrlActivity</string>
+</resources>
