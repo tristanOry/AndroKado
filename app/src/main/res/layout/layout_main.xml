@@ -10,33 +10,4 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:weightSum="2"
-        android:orientation="horizontal">
-        <ImageButton
-            android:id="@+id/btnValid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
-            android:src="@drawable/internet_32"
-            android:onClick="clickValidBtn"></ImageButton>
-
-        <ToggleButton
-            android:id="@+id/toggleBuying"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:layout_marginBottom="5dp"
-            android:textOff="À acheter"
-            android:textOn="Acheté"
-            android:onClick="clickBuyBtn"></ToggleButton>
-    </LinearLayout>
-
-
 </RelativeLayout>
