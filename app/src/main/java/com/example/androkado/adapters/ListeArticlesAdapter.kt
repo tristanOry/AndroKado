@@ -1,5 +1,6 @@
 package com.example.androkado.adapters
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -22,7 +23,7 @@ class ListeArticlesAdapter(private val dataset: ArrayList<Article>):
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        TODO("Not yet implemented")
+        return LayoutInflater.from(parent.context).inflate(R.layout.article_line_view, parent, false)
     }
 
     override fun getItemCount(): Int {
