@@ -1,5 +1,6 @@
 package com.example.androkado.adapters
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnClickListener
@@ -7,34 +8,47 @@ import android.view.ViewGroup
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androkado.bo.Article
+import com.example.androkado.DetailsActivity
 import com.example.androkado.R
+import com.example.androkado.bo.Article
 
-class ListeArticlesAdapter(private val dataset: ArrayList<Article>, private val clickListener: OnClickListener):
+class ListeArticlesAdapter(private val dataset: ArrayList<Article>):
     RecyclerView.Adapter<ListeArticlesAdapter.ViewHolder>() {
 
-    class ViewHolder(view: View, clickListener: OnClickListener): RecyclerView.ViewHolder(view)
+    class ViewHolder(view: View): RecyclerView.ViewHolder(view), OnClickListener
     {
-        //val articleName: TextView = view.findViewById(R.id.articleName)
+         var dataset: ArrayList<Article>? = null
+             set(value) {
+                 field = value
+             }
+
         val articleName: TextView
-        val price: TextView
-        val articleDetail: TextView
         val rating: RatingBar
         init {
-            // Define click listener for the ViewHolder's View
             articleName = view.findViewById(R.id.articleName)
-            price = view.findViewById(R.id.price)
-            articleDetail = view.findViewById(R.id.articleDetail)
             rating = view.findViewById(R.id.rating)
-            view.setOnClickListener(clickListener)
+            view.setOnClickListener(this)
         }
 
-
+        override fun onClick(v: View?) {
+            if(v != null){
+                val ctx = v.context
+                val pos = this.absoluteAdapterPosition
+                val intent = Intent(ctx, DetailsActivity::class.java)
+                val item = dataset?.get(pos)
+                if(item != null) {
+                    intent.putExtra("article", item)
+                }
+                v.context.startActivity(intent)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context)
-            .inflate(R.layout.article_line_view, parent, false), clickListener)
+        val vh = ViewHolder(LayoutInflater.from(parent.context)
+            .inflate(R.layout.article_card_view, parent, false))
+        vh.dataset = dataset
+        return vh
     }
 
     override fun getItemCount(): Int {
@@ -44,8 +58,7 @@ class ListeArticlesAdapter(private val dataset: ArrayList<Article>, private val 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val dataRow: Article = dataset[position]
         holder.articleName.text = dataRow.name
-        holder.price.text = String.format("%.2f €", dataRow.price)
-        holder.articleDetail.text = dataRow.details
         holder.rating.rating = dataRow.rating
+        holder.rating.contentDescription = "Note de " + dataRow.rating.toString() + " sur 4"
     }
 }

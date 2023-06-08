@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">AndroKado</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="title_activity_info_url">InfoUrlActivity</string>
+    <string name="rating_description">Note de l\'article</string>
+    <string name="default_article_name">Pain au chocolat</string>
+    <string name="default_article_description">Viennoiserie au nom controversé</string>
+    <string name="default_article_price">1.23 €</string>
+    <string name="default_article_url">Lien non fourni</string>
+    <string name="default_article_rating_description">La note de l\'article</string>
+    <string name="add_item">Ajouter</string>
+    <string name="cfg_item">configuration</string>
 </resources>
